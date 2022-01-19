@@ -36,7 +36,7 @@ const words = [
     "react",
     "vue",
     "pencil",
-    "java"
+    "java",
 ];
 
 let selectedWord = words[Math.floor(Math.random() * words.length)];
@@ -48,15 +48,15 @@ const wrongLetters = [];
 function displayWord() {
     wordEL.innerHTML = `
         ${selectedWord
-          .split("")
-          .map(
-            (letter) => `
+            .split("")
+            .map(
+                (letter) => `
                 <span class="letter">
                     ${correctLetters.includes(letter) ? letter : ""}
                 </span>
             `
-          )
-          .join("")}
+            )
+            .join("")}
     `;
     const innerWord = wordEL.innerText.replace(/\n/g, "");
     if (innerWord === selectedWord) {
@@ -68,9 +68,7 @@ function displayWord() {
 // Update the wrong letters
 function updateWrongLettersEL() {
     //display wrong letters
-    wrongLettersEL.innerHTML = `${
-    wrongLetters.length > 0 ? "<p>Wrong</p>" : ""
-  } ${wrongLetters.map((letter) => `<span>${letter}</span>`)}`;
+    wrongLettersEL.innerHTML = `${wrongLetters.length > 0 ? "<p>Wrong</p>" : ""} ${wrongLetters.map((letter) => `<span>${letter}</span>`)}`;
 
     // display parts
     figureParts.forEach((part, index) => {
